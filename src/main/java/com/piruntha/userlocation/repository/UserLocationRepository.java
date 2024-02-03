@@ -8,5 +8,4 @@ import java.util.List;
 
 @Repository
 public interface UserLocationRepository extends JpaRepository<UserLocation, Integer> {
-//    List <UserLocation> findAllLocationsByUserId(int user_id);
 }
