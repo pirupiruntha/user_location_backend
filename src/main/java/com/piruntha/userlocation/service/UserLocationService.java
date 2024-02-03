@@ -26,15 +26,7 @@ public class UserLocationService {
         return userLocationRepository.save(location);
     }
     public Optional<UserLocation> getCurrentUserLocation( int user_id) {
-        Optional<UserLocation> currentUserLocation = userLocationRepository.findById(user_id);
-
-        if (currentUserLocation.isPresent()) {
-            UserLocation userLocation = currentUserLocation.get();
-            return userLocationRepository.findById(user_id);
-
-        } else {
-            throw new UserLocationException("user {} current location not found"+ user_id);
-        }
+      return userLocationRepository.findById(user_id);
     }
 
     public UserLocation saveLocation(UserLocation location) {

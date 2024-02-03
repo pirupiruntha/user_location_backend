@@ -13,6 +13,7 @@ import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -27,11 +28,9 @@ public class UserLocationController {
                 .withPayload(userLocationService.addUserLocation(userLocationRequest, user_id)));
     }
 
-    @GetMapping("/{user_id}/location")
-    public ResponseEntity<ApiResponse> getUserCurrentLocation(@PathVariable int userId) throws UserLocationException{
-        return ResponseEntity.ok(ApiResponse.forStatus(StatusCode.S000)
-                .withMessage(StatusCode.S000.getMessage())
-                .withPayload(userLocationService.getCurrentUserLocation(userId)));
+    @GetMapping("location/{user_id}")
+    public Optional<UserLocation> getUserCurrentLocation(@PathVariable int userId) throws UserLocationException{
+        return userLocationService.getCurrentUserLocation(userId);
     }
 
     @MessageMapping("/{user_id}/user-locations")
