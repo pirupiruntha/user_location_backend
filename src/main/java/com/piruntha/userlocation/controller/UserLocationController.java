@@ -3,7 +3,6 @@ package com.piruntha.userlocation.controller;
 import com.piruntha.userlocation.common.StatusCode;
 import com.piruntha.userlocation.dto.request.UserLocationRequest;
 import com.piruntha.userlocation.dto.response.ApiResponse;
-import com.piruntha.userlocation.dto.response.UserLocationResponse;
 import com.piruntha.userlocation.entity.UserLocation;
 import com.piruntha.userlocation.exception.UserLocationException;
 import com.piruntha.userlocation.service.UserLocationService;
@@ -13,7 +12,6 @@ import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -28,7 +26,7 @@ public class UserLocationController {
                 .withPayload(userLocationService.addUserLocation(userLocationRequest, user_id)));
     }
 
-    @GetMapping("location/{user_id}")
+    @GetMapping("location/{userId}")
     public Optional<UserLocation> getUserCurrentLocation(@PathVariable int userId) throws UserLocationException{
         return userLocationService.getCurrentUserLocation(userId);
     }
