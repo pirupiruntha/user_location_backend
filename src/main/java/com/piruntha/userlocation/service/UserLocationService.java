@@ -1,15 +1,12 @@
 package com.piruntha.userlocation.service;
 
 import com.piruntha.userlocation.dto.request.UserLocationRequest;
-import com.piruntha.userlocation.dto.response.UserLocationResponse;
 import com.piruntha.userlocation.entity.UserLocation;
-import com.piruntha.userlocation.exception.UserLocationException;
 import com.piruntha.userlocation.repository.UserLocationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Optional;
 
 @Service

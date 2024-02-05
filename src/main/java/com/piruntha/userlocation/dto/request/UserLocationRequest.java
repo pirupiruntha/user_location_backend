@@ -9,5 +9,4 @@ public class UserLocationRequest {
     private int user_id;
     private double latitude;
     private double longitude;
-    private LocalDateTime updateTime;
 }
